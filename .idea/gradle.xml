@@ -11,8 +11,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/android_base_library" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/base_android_library" />
             <option value="$PROJECT_DIR$/base_interface_library" />
             <option value="$PROJECT_DIR$/base_library" />
             <option value="$PROJECT_DIR$/feature_library" />

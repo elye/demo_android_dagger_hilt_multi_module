@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
-      <module name="Multi_Module_Dagger_Hilt.android_base_library" target="11" />
       <module name="Multi_Module_Dagger_Hilt.app" target="11" />
+      <module name="Multi_Module_Dagger_Hilt.base_android_library" target="11" />
       <module name="Multi_Module_Dagger_Hilt.feature_library" target="11" />
     </bytecodeTargetLevel>
   </component>

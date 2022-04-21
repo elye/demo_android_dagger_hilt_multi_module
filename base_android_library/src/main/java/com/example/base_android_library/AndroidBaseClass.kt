@@ -1,4 +1,4 @@
-package com.example.android_base_library
+package com.example.base_android_library
 
 import javax.inject.Inject
 import javax.inject.Singleton

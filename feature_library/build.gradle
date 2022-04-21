@@ -34,7 +34,7 @@ android {
 dependencies {
 
     implementation project(':base_library')
-    implementation project(':android_base_library')
+    implementation project(':base_android_library')
     implementation project(':base_interface_library')
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'

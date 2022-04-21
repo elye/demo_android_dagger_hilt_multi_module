@@ -3,8 +3,8 @@ package com.example.feature_library
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.android_base_library.AndroidBaseClass
-import com.example.android_base_library.InterfaceObject
+import com.example.base_android_library.AndroidBaseClass
+import com.example.base_android_library.InterfaceObject
 import com.example.base_interface_library.BaseInterface
 import com.example.base_library.VanillaBaseClass
 import dagger.hilt.android.AndroidEntryPoint

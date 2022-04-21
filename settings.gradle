@@ -16,5 +16,5 @@ rootProject.name = "Multi Module Dagger Hilt"
 include ':app'
 include ':base_library'
 include ':feature_library'
-include ':android_base_library'
+include ':base_android_library'
 include ':base_interface_library'
