@@ -29,6 +29,6 @@ class FeatureActivity : AppCompatActivity() {
         setContentView(R.layout.activity_feature)
 
         findViewById<TextView>(R.id.my_text).text =
-            vanilaBaseClass.text + " " + featureClass.text + " " + androidBaseClass.text
+            vanilaBaseClass.text + "\n" + featureClass.text + "\n" + androidBaseClass.text
     }
 }
