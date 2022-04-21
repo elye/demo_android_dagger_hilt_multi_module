@@ -1,22 +1,19 @@
 package com.example.feature_library
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.android_base_library.AndroidBaseClass
-import com.example.base_library.VanilaBaseClass
+import com.example.android_base_library.InterfaceObject
+import com.example.base_interface_library.BaseInterface
+import com.example.base_library.VanillaBaseClass
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-
-
-class FeatureClass @Inject constructor(){
-    val text = "My Feature Class"
-}
 
 @AndroidEntryPoint
 class FeatureActivity : AppCompatActivity() {
     @Inject
-    lateinit var vanilaBaseClass: VanilaBaseClass
+    lateinit var vanillaBaseClass: VanillaBaseClass
 
     @Inject
     lateinit var featureClass: FeatureClass
@@ -24,11 +21,21 @@ class FeatureActivity : AppCompatActivity() {
     @Inject
     lateinit var androidBaseClass: AndroidBaseClass
 
+    @Inject
+    lateinit var interfaceObj : InterfaceObject
+
+    @Inject
+    lateinit var baseInterfaceObject : BaseInterface
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feature)
 
         findViewById<TextView>(R.id.my_text).text =
-            vanilaBaseClass.text + "\n" + featureClass.text + "\n" + androidBaseClass.text
+            vanillaBaseClass.text + "\n"  + vanillaBaseClass + "\n\n" +
+                    featureClass.text + "\n" + featureClass + "\n\n" +
+                    androidBaseClass.text + "\n" + androidBaseClass + "\n\n" +
+                    interfaceObj.text + "\n" + interfaceObj + "\n\n" +
+                    baseInterfaceObject.text + "\n" + baseInterfaceObject
     }
 }
