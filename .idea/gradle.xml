@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/base_android_library" />
             <option value="$PROJECT_DIR$/base_interface_library" />
             <option value="$PROJECT_DIR$/base_library" />
+            <option value="$PROJECT_DIR$/feature_inverse_library" />
             <option value="$PROJECT_DIR$/feature_library" />
           </set>
         </option>

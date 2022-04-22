@@ -4,6 +4,7 @@
     <bytecodeTargetLevel target="1.7">
       <module name="Multi_Module_Dagger_Hilt.app" target="11" />
       <module name="Multi_Module_Dagger_Hilt.base_android_library" target="11" />
+      <module name="Multi_Module_Dagger_Hilt.feature_inverse_library" target="11" />
       <module name="Multi_Module_Dagger_Hilt.feature_library" target="11" />
     </bytecodeTargetLevel>
   </component>

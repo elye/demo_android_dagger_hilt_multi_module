@@ -1,5 +1,6 @@
 package com.example.multimoduledaggerhilt
 
+import android.content.ComponentName
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,13 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.my_button).setOnClickListener {
             startActivity(Intent(this, FeatureActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.my_inverse_button).setOnClickListener {
+            val intent = Intent().also {
+                it.component = ComponentName(packageName, "com.example.feature_inverse_library.FeatureInverseActivity")
+            }
+            startActivity(intent)
         }
     }
 }

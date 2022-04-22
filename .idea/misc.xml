@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.10055724417426545" />
+        <entry key="feature_inverse_library/src/main/res/layout/activity_feature_inverse.xml" value="0.3509963768115942" />
         <entry key="feature_library/src/main/res/layout/activity_feature.xml" value="0.1" />
       </map>
     </option>
