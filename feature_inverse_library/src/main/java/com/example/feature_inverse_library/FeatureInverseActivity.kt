@@ -7,11 +7,15 @@ import com.example.base_interface_library.BaseInterface
 import com.example.multimoduledaggerhilt.MainComponent
 import dagger.hilt.android.EntryPointAccessors
 import javax.inject.Inject
+import javax.inject.Singleton
 
 class FeatureInverseActivity : AppCompatActivity() {
 
     @Inject
     lateinit var baseInterfaceObject: BaseInterface
+
+    @Inject
+    lateinit var featureInverseClass: FeatureInverseClass
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +26,12 @@ class FeatureInverseActivity : AppCompatActivity() {
         ).inject(this)
 
         findViewById<TextView>(R.id.my_text).text = "Feature Inverse Library\n\n" +
-                baseInterfaceObject.text + "\n" + baseInterfaceObject
+                baseInterfaceObject.text + "\n" + baseInterfaceObject + "\n\n" +
+                featureInverseClass.text + "\n" + featureInverseClass
     }
+}
+
+@Singleton
+class FeatureInverseClass @Inject constructor(){
+    val text = "My Feature Inverse Class"
 }
