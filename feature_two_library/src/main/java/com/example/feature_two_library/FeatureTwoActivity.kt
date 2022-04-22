@@ -1,8 +1,8 @@
-package com.example.feature_library
+package com.example.feature_two_library
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import com.example.base_android_library.AndroidBaseClass
 import com.example.base_android_library.InterfaceFeatureObject
 import com.example.base_android_library.InterfaceObject
@@ -13,12 +13,12 @@ import javax.inject.Inject
 import javax.inject.Named
 
 @AndroidEntryPoint
-class FeatureActivity : AppCompatActivity() {
+class FeatureTwoActivity : AppCompatActivity() {
     @Inject
     lateinit var vanillaBaseClass: VanillaBaseClass
 
     @Inject
-    lateinit var featureClass: FeatureClass
+    lateinit var featureTwoClass: FeatureTwoClass
 
     @Inject
     lateinit var androidBaseClass: AndroidBaseClass
@@ -30,16 +30,16 @@ class FeatureActivity : AppCompatActivity() {
     lateinit var baseInterfaceObject: BaseInterface
 
     @Inject
-    @Named("FeatureOne")
+    @Named("FeatureTwo")
     lateinit var interfaceFeatureObject: InterfaceFeatureObject
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_feature)
+        setContentView(R.layout.activity_feature_two)
 
         findViewById<TextView>(R.id.my_text).text = "Feature Two Library\n\n" +
                 vanillaBaseClass.text + "\n" + vanillaBaseClass + "\n\n" +
-                featureClass.text + "\n" + featureClass + "\n\n" +
+                featureTwoClass.text + "\n" + featureTwoClass + "\n\n" +
                 androidBaseClass.text + "\n" + androidBaseClass + "\n\n" +
                 interfaceObj.text + "\n" + interfaceObj + "\n\n" +
                 baseInterfaceObject.text + "\n" + baseInterfaceObject + "\n\n" +

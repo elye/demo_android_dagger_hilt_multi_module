@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/base_library" />
             <option value="$PROJECT_DIR$/feature_inverse_library" />
             <option value="$PROJECT_DIR$/feature_library" />
+            <option value="$PROJECT_DIR$/feature_two_library" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

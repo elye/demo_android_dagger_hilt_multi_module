@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.feature_library.FeatureActivity
+import com.example.feature_two_library.FeatureTwoActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,6 +15,10 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.my_button).setOnClickListener {
             startActivity(Intent(this, FeatureActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.my_button_two).setOnClickListener {
+            startActivity(Intent(this, FeatureTwoActivity::class.java))
         }
 
         findViewById<Button>(R.id.my_inverse_button).setOnClickListener {
