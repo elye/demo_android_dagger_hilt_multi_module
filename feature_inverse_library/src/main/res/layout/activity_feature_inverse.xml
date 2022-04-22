@@ -7,6 +7,7 @@
     tools:context=".FeatureInverseActivity">
 
     <TextView
+        android:id="@+id/my_text"
         android:text="Feature Inverse Activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
