@@ -22,13 +22,13 @@ class MainActivity : AppCompatActivity() {
     @InstallIn(SingletonComponent::class)
     @EntryPoint
     interface MySubComponentEntryPoint {
-        fun mySubComponentFactory(): MySubComponent.Factory
+        fun mySubComponent(): MySubComponent
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         val entryPoint = EntryPointAccessors.fromApplication(applicationContext, MySubComponentEntryPoint::class.java)
-        entryPoint.mySubComponentFactory().create().inject(this)
+        entryPoint.mySubComponent().inject(this)
 
         Log.d("Tracking", mySubCompModuleInterface.msg)
 

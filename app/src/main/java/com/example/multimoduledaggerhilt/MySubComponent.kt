@@ -8,14 +8,6 @@ import javax.inject.Inject
 
 @Subcomponent(modules = [MyModule::class])
 interface MySubComponent {
-
-    // Factory to create instances of UserComponent
-    @Subcomponent.Factory
-    interface Factory {
-        fun create(): MySubComponent
-    }
-
-    // Classes that can be injected by this Component
     fun inject(activity: MainActivity)
 }
 
