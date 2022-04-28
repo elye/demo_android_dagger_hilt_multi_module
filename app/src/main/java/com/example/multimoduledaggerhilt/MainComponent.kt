@@ -10,3 +10,4 @@ import dagger.hilt.components.SingletonComponent
 interface MainComponent {
     fun basedInterface(): BaseInterface
 }
+

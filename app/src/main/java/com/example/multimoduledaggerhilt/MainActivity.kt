@@ -4,12 +4,34 @@ import android.content.ComponentName
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import dagger.hilt.android.EntryPointAccessors
 import android.widget.Button
 import com.example.feature_library.FeatureActivity
 import com.example.feature_two_library.FeatureTwoActivity
+import dagger.hilt.EntryPoint
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var mySubCompModuleInterface: MySubCompModuleInterface
+
+    @InstallIn(SingletonComponent::class)
+    @EntryPoint
+    interface MySubComponentEntryPoint {
+        fun mySubComponentFactory(): MySubComponent.Factory
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val entryPoint = EntryPointAccessors.fromApplication(applicationContext, MySubComponentEntryPoint::class.java)
+        entryPoint.mySubComponentFactory().create().inject(this)
+
+        Log.d("Tracking", mySubCompModuleInterface.msg)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
