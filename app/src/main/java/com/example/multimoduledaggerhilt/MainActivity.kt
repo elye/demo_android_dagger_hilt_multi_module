@@ -7,17 +7,27 @@ import android.os.Bundle
 import android.util.Log
 import dagger.hilt.android.EntryPointAccessors
 import android.widget.Button
+import com.example.base_interface_library.BaseInterface
 import com.example.feature_library.FeatureActivity
 import com.example.feature_two_library.FeatureTwoActivity
+import dagger.Component
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Inject
 
+//@Component
+//interface MySubComponentEntryPoint {
+//    fun mySubComponent(): MySubComponent
+//}
+
 class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var mySubCompModuleInterface: MySubCompModuleInterface
+
+    @Inject
+    lateinit var baseInterface: BaseInterface
 
     @InstallIn(SingletonComponent::class)
     @EntryPoint
@@ -30,7 +40,10 @@ class MainActivity : AppCompatActivity() {
         val entryPoint = EntryPointAccessors.fromApplication(applicationContext, MySubComponentEntryPoint::class.java)
         entryPoint.mySubComponent().inject(this)
 
+//        DaggerMySubComponentEntryPoint.create().mySubComponent().inject(this)
+
         Log.d("Tracking", mySubCompModuleInterface.msg)
+        Log.d("Tracking", baseInterface.text)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
