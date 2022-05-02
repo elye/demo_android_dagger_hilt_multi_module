@@ -2,48 +2,18 @@ package com.example.multimoduledaggerhilt
 
 import android.content.ComponentName
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import dagger.hilt.android.EntryPointAccessors
 import android.widget.Button
-import com.example.base_interface_library.BaseInterface
+import androidx.appcompat.app.AppCompatActivity
 import com.example.feature_library.FeatureActivity
 import com.example.feature_two_library.FeatureTwoActivity
-import dagger.Component
-import dagger.hilt.EntryPoint
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Inject
+import com.example.multimoduledaggerhilt.entrypoint.*
+import com.example.multimoduledaggerhilt.entrypoint.component.ComponentEntrypointActivity
+import com.example.multimoduledaggerhilt.entrypoint.subcomponent.SubComponentEntrypointActivity
 
-//@Component
-//interface MySubComponentEntryPoint {
-//    fun mySubComponent(): MySubComponent
-//}
 
 class MainActivity : AppCompatActivity() {
-
-    @Inject
-    lateinit var mySubCompModuleInterface: MySubCompModuleInterface
-
-    @Inject
-    lateinit var baseInterface: BaseInterface
-
-    @InstallIn(SingletonComponent::class)
-    @EntryPoint
-    interface MySubComponentEntryPoint {
-        fun mySubComponent(): MySubComponent
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        val entryPoint = EntryPointAccessors.fromApplication(applicationContext, MySubComponentEntryPoint::class.java)
-        entryPoint.mySubComponent().inject(this)
-
-//        DaggerMySubComponentEntryPoint.create().mySubComponent().inject(this)
-
-        Log.d("Tracking", mySubCompModuleInterface.msg)
-        Log.d("Tracking", baseInterface.text)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -61,6 +31,14 @@ class MainActivity : AppCompatActivity() {
                 it.component = ComponentName(packageName, "com.example.feature_inverse_library.FeatureInverseActivity")
             }
             startActivity(intent)
+        }
+
+        findViewById<Button>(R.id.my_component_entry_button).setOnClickListener {
+            startActivity(Intent(this, ComponentEntrypointActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.my_subcomponent_entry_button).setOnClickListener {
+            startActivity(Intent(this, SubComponentEntrypointActivity::class.java))
         }
     }
 }

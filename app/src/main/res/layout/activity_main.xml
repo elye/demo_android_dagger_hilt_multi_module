@@ -31,8 +31,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Feature Inverse Activity"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/my_component_entry_button"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/my_button_two" />
+
+    <Button
+        android:id="@+id/my_component_entry_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Component Entry Activity"
+        app:layout_constraintBottom_toTopOf="@id/my_subcomponent_entry_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_inverse_button" />
+
+    <Button
+        android:id="@+id/my_subcomponent_entry_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SubComponent Entry Activity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_component_entry_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

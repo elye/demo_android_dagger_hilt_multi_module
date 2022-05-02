@@ -1,14 +1,15 @@
-package com.example.multimoduledaggerhilt
+package com.example.multimoduledaggerhilt.entrypoint.component
 
 import dagger.Module
 import dagger.Provides
 import dagger.Subcomponent
 import dagger.hilt.migration.DisableInstallInCheck
 import javax.inject.Inject
+import javax.inject.Scope
 
 @Subcomponent(modules = [MyModule::class])
-interface MySubComponent {
-    fun inject(activity: MainActivity)
+interface MyCompSubComponent {
+    fun inject(presenter: MyPresenter)
 }
 
 @DisableInstallInCheck
@@ -21,7 +22,7 @@ class MyModule  {
 }
 
 class MySubCompModuleImpl @Inject constructor() : MySubCompModuleInterface {
-    override val msg: String = "MySubCompModuleImpl"
+    override val msg: String = "MyCompSubCompModuleImpl"
 }
 
 interface MySubCompModuleInterface {
