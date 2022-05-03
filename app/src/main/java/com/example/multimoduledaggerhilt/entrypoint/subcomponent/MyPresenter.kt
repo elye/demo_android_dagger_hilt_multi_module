@@ -14,7 +14,7 @@ class MyPresenter(activity: Activity) {
     @InstallIn(ActivityComponent::class)
     @EntryPoint
     interface MySubComponentEntryPoint {
-        fun mySubComponent(): MySubComponent
+        fun mySubComponent(): MySubComponent.Builder
     }
 
     @Inject
@@ -27,11 +27,18 @@ class MyPresenter(activity: Activity) {
     lateinit var contextDependency: ContextDependency
 
     init {
-        val entryPoint = EntryPointAccessors.fromActivity(activity, MyPresenter.MySubComponentEntryPoint::class.java)
-        entryPoint.mySubComponent().inject(this)
+        val entryPoint = EntryPointAccessors
+            .fromActivity(
+                activity,
+                MySubComponentEntryPoint::class.java
+            )
+        entryPoint.mySubComponent().childModule(MyModule()).build().inject(this)
 
         Log.d("Tracking", mySubCompModuleInterface.msg)
         Log.d("Tracking", baseInterface.text)
-        Log.d("Tracking", "Activity\n${contextDependency.appContext}\n${contextDependency.actContext}")
+        Log.d(
+            "Tracking",
+            "Activity\n${contextDependency.appContext}\n${contextDependency.actContext}"
+        )
     }
 }

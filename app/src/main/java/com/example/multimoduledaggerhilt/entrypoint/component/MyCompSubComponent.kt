@@ -16,7 +16,7 @@ interface MyCompSubComponent {
 @Module
 class MyModule  {
     @Provides
-    fun provideTestInterface(): MySubCompModuleInterface {
+    fun provideMySubCompModuleInterface(): MySubCompModuleInterface {
         return MySubCompModuleImpl()
     }
 }

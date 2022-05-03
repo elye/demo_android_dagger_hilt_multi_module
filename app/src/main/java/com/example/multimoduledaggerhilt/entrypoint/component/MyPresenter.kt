@@ -17,7 +17,6 @@ import javax.inject.Inject
 @Component(dependencies = [MyData::class, AnotherComponent::class, CustomComponentDependencies::class])
 interface MyComponentEntryPoint {
     fun mySubComponent(): MyCompSubComponent
-    fun myData(): MyData
 }
 
 class MyData
