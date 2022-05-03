@@ -15,7 +15,7 @@ import dagger.hilt.migration.DisableInstallInCheck
 import javax.inject.Inject
 
 @Component(dependencies = [MyData::class, AnotherComponent::class, CustomComponentDependencies::class])
-interface MyComponentEntryPoint {
+interface DaggerComponent {
     fun mySubComponent(): MyCompSubComponent
 }
 
@@ -59,7 +59,7 @@ class MyPresenter(activity: Activity) {
     lateinit var contextDependency: ContextDependency
 
     init {
-        DaggerMyComponentEntryPoint.builder()
+        DaggerDaggerComponent.builder()
             .customComponentDependencies(
                 EntryPointAccessors.fromActivity(
                     activity,
